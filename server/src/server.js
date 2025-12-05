@@ -14,13 +14,31 @@ const app = express();
 // Connect DB
 connectDB();
 
+// CORS
+const allowedOrigins = [
+  process.env.CLIENT_URL,        // https://music-ai-dc7l.vercel.app
+  'http://localhost:5173',
+  'https://music-ai-dc7l.vercel.app'        // local dev
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error('Not allowed by CORS'));
+    },
+    credentials: true,
+  })
+);
+
 // Middleware
-app.use(cors({ origin: process.env.CLIENT_URL || '*', credentials: true }));
 app.use(express.json());
 app.use('/api/tracks', trackRoutes);
 app.use('/api/playlists', playlistRoutes);
 app.use('/api/stats', statsRoutes);
-
 
 // Static files for audio
 app.use('/audio', express.static(path.join(__dirname, '..', 'public', 'audio')));
@@ -29,8 +47,6 @@ app.use('/audio', express.static(path.join(__dirname, '..', 'public', 'audio')))
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Mood DJ backend is alive' });
 });
-
-// TODO: later add routes: tracks, playlists, stats
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
