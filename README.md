@@ -215,7 +215,6 @@ A 3-minute walkthrough video demonstrating:
 
 ## 👨‍💻 Author
 
-**Your Name**
--Saad Momin
+Saad Momin
 ---
 
