@@ -103,47 +103,6 @@ App runs on `http://localhost:5173`
 
 ---
 
-## 🌐 Deployment (Vercel)
-
-### Backend Deployment
-
-1. Push code to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Set root directory to `server/`
-4. Add environment variables in Vercel dashboard:
-   - `MONGODB_URI`
-   - `GROQ_API_KEY`
-   - `CLIENT_URL` (your frontend Vercel URL)
-   - `REDIS_URL` (optional)
-5. Deploy
-
-**Important:** Create `vercel.json` in `server/`:
-{
-"version": 2,
-"builds": [
-{
-"src": "src/server.js",
-"use": "@vercel/node"
-}
-],
-"routes": [
-{
-"src": "/(.*)",
-"dest": "src/server.js"
-}
-]
-}
-
-
-### Frontend Deployment
-
-1. Import project in Vercel (separate deployment)
-2. Set root directory to `client/`
-3. Add environment variable:
-   - `VITE_API_URL` (your backend Vercel URL)
-4. Deploy
-
----
 
 ## 🎬 Demo Video
 
