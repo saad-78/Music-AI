@@ -153,7 +153,7 @@ A 3-minute walkthrough video demonstrating:
 3. Playing tracks with auto-advance
 4. Viewing top tracks stats with caching
 
-**Video Link:** [Add your video link here]
+**Video Link:** https://drive.google.com/file/d/1WZuqXVHypKbdZbizXbO3jR0j1nZHp9PJ/view?usp=drive_link
 
 ---
 
