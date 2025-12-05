@@ -45,7 +45,7 @@ A full-stack web application that uses AI to generate personalized music playlis
 - Redis (optional, for caching)
 
 ### 1. Clone Repository
-git clone https://github.com/YOUR_USERNAME/mood-dj.git
+git clone 
 cd mood-dj
 
 
